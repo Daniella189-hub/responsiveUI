@@ -24,13 +24,140 @@
 		</nav>
 		</header>
 		<main>
+			<section>
+				<h2>About</h2>
+				<p>This app is mainly for tracking the student finance</p>
+				<p>As our student you are required to provide  your Github and Email account</p>
 
-			<section>About</section>
-			<section>Dashboard</section>
-                        <section>Records Table</section>
-                        <section>Add/Edit form</section>
-                        <section>Settings</section>
-      
+				<p>after checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email<br> Fill out this form below</a></p>
+				<div>
+					<form action="/signup" method="">
+					<fieldset>
+						<legend>Info</legend>
+						<label for="Github">Github:</label>
+						<input type="text" id="Github" name="Github" required>
+						<label for="email">email:</label>
+						<input type="email" id="email" name="email" placeholder="e.g:abcd@alustudent.com"required>
+					</fieldset>
+					</form>
+				</div>	
+			</section>
+
+<!--DASHBOARD-->
+			<section>
+
+				<h2 id="dash-h">Dashboard</h2>
+				<div class="stats">
+					<div class="card"><h3>Total records</h3><p id="stat-count" class="big">0</p></div>
+					<div class="card"><h3>Total spent(numeric field)</h3><p id="stat-sum" class="big">0</p></div>
+					<div class="card"><h3>Top category</h3><p id="stat-top" class="big">-</p></div>
+				</div>
+				<p id="cap-message" class="cap" aria-live="polite" aria-atomic="true"></p>
+				<h3>Last 7 days</h3>
+				<div id="trend" class="trend" role="img" arial-label="Spent in the last 7 days"></div>
+			</section>
+<!--RECORDS-->
+            <section>
+				<h2>Records Table</h2>
+				<div class="toolbar">
+			
+					<div class="field">
+						<label for="search">Search (regex)</label>
+						<input id="search" type="text" placeholder="e,g, (coffee|tea)" autocomplete="off">
+					</div>
+					<div class="field">
+						<label for="sort">sorting</label>
+						<select> 
+							<option value="date-desc">Date(newest)</option>
+							<option value="date-asc">Date (oldest)</option>
+							<option value="description-asc">Description</option>
+							<option value="amount-asc">Amount inc</option>
+							<option value="amount-desc">Amount decr</option>
+						</select>
+					</div>
+				</div>
+					<p id="regex-error" class="error" role="alert"></p>
+					<p id="result-count" class="muted"></p>
+				<table>
+					<caption class="sr-only">Transactions</caption>
+					<thead>
+						<tr><th scope="col">Date</th><th scop="col">Description</th><th scope="col">Amount</th>
+							<th scope="col">category</th><th scope="col">Actions</th></tr>
+					</thead>
+					<tbody id="rows"></tbody>
+				</table>
+			</section>
+            <section id="form">
+				<h2>Add/Edit form</h2>
+				<form id="record-form">
+					<input type="hidden" id="rec-id">
+					<div class="field">
+						<label for="Description">Description</label>
+						<input id="description" autocomplete="off" aria-describedby="description-error">
+						<p class="error" id="description-error"></p>
+					</div>
+					<div class="field">
+						<label for="amount">Amount (base currency)</label>
+						<input id="amount" inputmode="decimal" autocomplete="off" aria-describedby="amount-error">
+						<p class="error" id="amount-error"></p>
+					</div>
+					<div class="field">
+						<label for="category">Category</label>
+						<input id="category" list="category-list" autocomplete="off" aria-describedby="category-error">
+						<datalist id="category-list"></datalist>
+						<p class="error" id="category-error"></p>
+					</div>
+					<div class="field">
+						<label for="date">Date (YYYY-MM-DD)</label>
+						<input id="date" placeholder="2025-09-29" autocomplete="off" aria-describedby="date-error">
+						<p class="error" id="date-error"></p>
+					</div>
+					<div class="actions">
+						<button type="submit" id="save-btn">Add transaction</button>
+						<button type="button" id="cancel-btn" class="secondary" hidden>Cancel edit</button>
+					</div>
+				</form>
+			</section>
+	
+<!--SETTINGS-->
+            <section>
+				<h2>Settings</h2>
+				<form>
+					<div class="field">
+						<label for="cap">Spending cap (USD, base currency)</label>
+						<input id="cap" inputmode="decimal">
+					</div>
+					<fieldset>
+						<legend> exchane rates(1US =...)</legend>
+						<div class="field"><label for="rate-EUR">EURO</label>
+							<input id="rate-EUR" inputmode="decimal"></div>
+						<div class="field"><label for="rate-RWF">RWF</label>
+							<input id="rate-RWF" inputmode="decimal"></div>
+					</fieldset>
+					<div class="field">
+						<label for="display">Display currency</label>
+						<select id="display"><option>USD</option><option>EUR</option><option>RWF</option></select>
+					</div>
+					<div class="field">
+						<label for="categories">Categories</label>
+						<input id="categories">
+					</div>
+					<p id="settings-error" class="error" role="alert"></p>
+					<button type="submit"> Save settings"</button>
+				</form>
+				<h3>Import / Export</h3>
+					<div class="actions">
+						<button type="button" id="export-btn">Export JSON</button>
+						<label for="import" class="button secondary">Import JSON</label>
+						<input id="import" type="file" accept="application/json" class="sr-only">
+					</div>
+					<p id="import-error" class="error" role="alert"></p>
+			</section>
 		</main>
+
+		<footer class="site-footer"><p> Built for the building reponsive UI summatie</p></footer>
+		<p id="status" role="status" class="sr-only"></p>
+		<script type="module" src="scripts/main.js"></script>
 	</body>
 <html>
+	
