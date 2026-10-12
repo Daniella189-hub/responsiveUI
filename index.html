@@ -9,35 +9,40 @@
 	</head>
 
 	<body>
-		<header><h1>Finance Tracker</h1>
+		<header>
+			<nav class="read">
+				<ul>
 				
-
-		<nav>
-			<ul>
-			
-				<li><a href="#about">About</a></li>
-				<li> <a href="#dashoard">Dashboard</a></li>
-				<li><a href="records tables">Records Table</a></li>
-				<li><a href="#add">Add/Edit form</a></li>
-				<li><a href="settings">Settings</a></li>
-			</ul>
-		</nav>
+					<li><a href="#about">About</a></li>
+					<li><a href="#dashoard">Dashboard</a></li>
+					<li><a href="records tables">Records Table</a></li>
+					<li><a href="#add">Add/Edit form</a></li>
+					<li><a href="settings">Settings</a></li>
+				</ul>
+			</nav>
 		</header>
+			<div class="hero">
+				<h1 align="center">Welcome to Finance Tracker</h1>
+				<h3 align="center">Manage your finances effectively</h3>
+				<h3 align="center"> <a href="https://www.coursera.org/organizations/alu/learn/financial-planning?authProvider=alu" class="ready"> Get Started</a></h3>	
+			</div>
 		<main>
 			<section>
 				<h2>About</h2>
-				<p>This app is mainly for tracking the student finance</p>
-				<p>As our student you are required to provide  your Github and Email account</p>
-
-				<p>after checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email<br> Fill out this form below</a></p>
+				<ul>
+					<li><p>This app is mainly for tracking the student finance</p></li>
+					<li><p>As our student you are required to provide  your Github and Email account</p></li>
+					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email<br> Fill out this form below</a></p></li>
+				</ul>
 				<div>
 					<form action="/signup" method="">
 					<fieldset>
 						<legend>Info</legend>
 						<label for="Github">Github:</label>
-						<input type="text" id="Github" name="Github" required>
+						<input type="text" id="Github" name="Github" required> <br><br>
 						<label for="email">email:</label>
-						<input type="email" id="email" name="email" placeholder="e.g:abcd@alustudent.com"required>
+						<input type="email" id="email" name="email" placeholder="e.g:abcd@alustudent.com"required><br><br>
+						<input type="submit" value="submit" style="background-color:lightskyblue">
 					</fieldset>
 					</form>
 				</div>	
@@ -87,6 +92,7 @@
 					<tbody id="rows"></tbody>
 				</table>
 			</section>
+
             <section id="form">
 				<h2>Add/Edit form</h2>
 				<form id="record-form">
@@ -128,10 +134,10 @@
 						<input id="cap" inputmode="decimal">
 					</div>
 					<fieldset>
-						<legend> exchane rates(1US =...)</legend>
-						<div class="field"><label for="rate-EUR">EURO</label>
+						<legend style="color:linear-gradient(135deg, #667eea,#667eea)"> Exchange rates(1US =...)</legend>
+						<div class="field"><label for="rate-EUR" style="color:black">EURO</label>
 							<input id="rate-EUR" inputmode="decimal"></div>
-						<div class="field"><label for="rate-RWF">RWF</label>
+						<div class="field"><label for="rate-RWF" style="color:black">RWF</label>
 							<input id="rate-RWF" inputmode="decimal"></div>
 					</fieldset>
 					<div class="field">
