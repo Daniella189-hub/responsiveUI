@@ -1,0 +1,39 @@
+body{
+    background-color: black;
+    margin: 20px;
+    color: white;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+}
+.read li{
+    display:inline-flex;
+    flex-direction:row;
+    flex-flow:row-reverse;
+    margin:10px
+
+}
+.ready ul{
+    list-style-type: none;
+}
+.hero{
+    display: border;
+    padding:30px;
+    justify-content:center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.ready{
+    display:inline-block;
+    padding:1%;
+    background-color: purple;
+    border-radius:20px;
+    color:white;
+    animation: pulse 2s infinite;
+    list-style:none;
+    text-decoration:none;
+
+}
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.1);}
+    100%{transform:scale(1);}
+}
