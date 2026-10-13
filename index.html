@@ -9,15 +9,16 @@
 	</head>
 
 	<body>
-		<header>
-			<nav class="read">
+		<a href="#main" class="skip-link">Skip to main content</a>
+		<header class="site-header">
+			<nav aria-label="Main" class="read">
 				<ul>
 				
 					<li><a href="#about">About</a></li>
 					<li><a href="#dashoard">Dashboard</a></li>
-					<li><a href="records tables">Records Table</a></li>
+					<li><a href="#record table">Records Table</a></li>
 					<li><a href="#add">Add/Edit form</a></li>
-					<li><a href="settings">Settings</a></li>
+					<li><a href="#settings">Settings</a></li>
 				</ul>
 			</nav>
 		</header>
@@ -26,7 +27,8 @@
 				<h3 align="center">Manage your finances effectively</h3>
 				<h3 align="center"> <a href="https://www.coursera.org/organizations/alu/learn/financial-planning?authProvider=alu" class="ready"> Get Started</a></h3>	
 			</div>
-		<main>
+		<main id="main" tabindex="-1">
+			<!--ABOUT-->
 			<section>
 				<h2>About</h2>
 				<ul>
@@ -70,35 +72,38 @@
 						<label for="search">Search (regex)</label>
 						<input id="search" type="text" placeholder="e,g, (coffee|tea)" autocomplete="off">
 					</div>
+					<label class="check"><input type="checkbox" id="case-toggle" checked>Case-insensitive</label>
 					<div class="field">
 						<label for="sort">sorting</label>
-						<select> 
+						<select id="sort"> 
 							<option value="date-desc">Date(newest)</option>
 							<option value="date-asc">Date (oldest)</option>
-							<option value="description-asc">Description</option>
+							<option value="description-asc">Description A-Z</option>
+							<option value="description-desc">Description Z-A</option>
 							<option value="amount-asc">Amount inc</option>
 							<option value="amount-desc">Amount decr</option>
 						</select>
 					</div>
 				</div>
-					<p id="regex-error" class="error" role="alert"></p>
-					<p id="result-count" class="muted"></p>
+				<p id="regex-error" class="error" role="alert"></p>
+				<p id="result-count" class="muted"></p>
 				<table>
 					<caption class="sr-only">Transactions</caption>
 					<thead>
 						<tr><th scope="col">Date</th><th scop="col">Description</th><th scope="col">Amount</th>
-							<th scope="col">category</th><th scope="col">Actions</th></tr>
+							<th scope="col">Category</th><th scope="col">Actions</th></tr>
 					</thead>
 					<tbody id="rows"></tbody>
 				</table>
 			</section>
+<!--ADD/EDIT FORM-->
 
             <section id="form">
 				<h2>Add/Edit form</h2>
-				<form id="record-form">
+				<form id="record-form" novalidate>
 					<input type="hidden" id="rec-id">
 					<div class="field">
-						<label for="Description">Description</label>
+						<label for="description">Description</label>
 						<input id="description" autocomplete="off" aria-describedby="description-error">
 						<p class="error" id="description-error"></p>
 					</div>
@@ -128,7 +133,7 @@
 <!--SETTINGS-->
             <section>
 				<h2>Settings</h2>
-				<form>
+				<form id="settings-form" novalidate>
 					<div class="field">
 						<label for="cap">Spending cap (USD, base currency)</label>
 						<input id="cap" inputmode="decimal">
@@ -161,7 +166,7 @@
 			</section>
 		</main>
 
-		<footer class="site-footer"><p> Built for the building reponsive UI summatie</p></footer>
+		<footer class="site-footer"><p> Built for the building reponsive UI summative</p></footer>
 		<p id="status" role="status" class="sr-only"></p>
 		<script type="module" src="scripts/main.js"></script>
 	</body>
