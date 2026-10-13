@@ -16,7 +16,7 @@ import{
     compileRegex,
     filterRecords,
     sortRecords
-} from './search.js';
+} from './main.js';
 
 import{
     hasData,
