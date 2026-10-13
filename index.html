@@ -15,8 +15,8 @@
 				<ul>
 				
 					<li><a href="#about">About</a></li>
-					<li><a href="#dashoard">Dashboard</a></li>
-					<li><a href="#record table">Records Table</a></li>
+					<li><a href="#dashboard">Dashboard</a></li>
+					<li><a href="#recordtable">Records Table</a></li>
 					<li><a href="#add">Add/Edit form</a></li>
 					<li><a href="#settings">Settings</a></li>
 				</ul>
@@ -29,12 +29,12 @@
 			</div>
 		<main id="main" tabindex="-1">
 			<!--ABOUT-->
-			<section>
+			<section id="about">
 				<h2>About</h2>
 				<ul>
 					<li><p>This app is mainly for tracking the student finance</p></li>
 					<li><p>As our student you are required to provide  your Github and Email account</p></li>
-					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email<br> Fill out this form below</a></p></li>
+					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email</a><br><br> Fill out the form below</p></li>
 				</ul>
 				<div>
 					<form action="/signup" method="">
@@ -51,7 +51,7 @@
 			</section>
 
 <!--DASHBOARD-->
-			<section>
+			<section id="dashboard">
 
 				<h2 id="dash-h">Dashboard</h2>
 				<div class="stats">
@@ -64,7 +64,7 @@
 				<div id="trend" class="trend" role="img" arial-label="Spent in the last 7 days"></div>
 			</section>
 <!--RECORDS-->
-            <section>
+            <section id="recordtable">
 				<h2>Records Table</h2>
 				<div class="toolbar">
 			
@@ -98,7 +98,7 @@
 			</section>
 <!--ADD/EDIT FORM-->
 
-            <section id="form">
+            <section id="add">
 				<h2>Add/Edit form</h2>
 				<form id="record-form" novalidate>
 					<input type="hidden" id="rec-id">
@@ -131,7 +131,7 @@
 			</section>
 	
 <!--SETTINGS-->
-            <section>
+            <section id="settings">
 				<h2>Settings</h2>
 				<form id="settings-form" novalidate>
 					<div class="field">
@@ -145,6 +145,8 @@
 						<div class="field"><label for="rate-RWF" style="color:black">RWF</label>
 							<input id="rate-RWF" inputmode="decimal"></div>
 					</fieldset>
+					<br>
+					<br>
 					<div class="field">
 						<label for="display">Display currency</label>
 						<select id="display"><option>USD</option><option>EUR</option><option>RWF</option></select>
