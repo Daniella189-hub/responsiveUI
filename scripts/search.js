@@ -24,7 +24,7 @@ export function highlight(text, re){
 export const filterRecords = (rows, re, toText) => rows.filter((r) => toText(r).search(re) >=0);
 export function sortRecords(rows, key, dir){
     const m= dir === 'asc' ? 1 : -1;
-    return [..rows].sort((a,b) =>
+    return [...rows].sort((a,b) =>
     key === 'amount' ? (a.amount -b.amount) * m : String(a[key]).localeCompare(String(b[key])) * m
     );
 }
