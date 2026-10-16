@@ -1,4 +1,106 @@
+[
+    {
+        "id":"rec_0001",
+        "description":"Lunch at cafeteria",
+        "amount":12.5,
+        "category":"Food",
+        "date":"2025-09-25",
+        "createdAt":"2025-09-25T12:00:00.000Z",
+        "updateAt":"2025-09-25T12:00:00.000Z"
+    },
+    {
+        "id":"rec_0002",
+        "description":"Chemistry textbook",
+        "amount":89.99,
+        "category":"Books",
+        "date":"2025-09-23",
+        "createdAt":"2025-09-23T09:00:00.000Z",
+        "updatedAt":"2025-09-23T09:00:00.000Z"
 
+    },
+    {
+        "id":"rec_0003",
+        "description":"Bus Pass",
+        "amount":45,
+        "category":"Transport",
+        "date":"2025-09-20",
+        "createdAt":"2025-09-20T08:00:00.000Z",
+        "updatedAt":"2025-09-20T08:00:00.000Z"
+    },
+    {
+        "id":"rec_0004",
+        "description":"Coffee with friends",
+        "amount":"8.75",
+        "category":"Entertainment",
+        "date":"2025-09-28",
+        "createdAt":"2025-09-28T15:00:00.000Z",
+        "updatedAt":"2025-09-28T15:00:00.000Z"
+    },
+    {
+        "id":"rec_0005",
+        "description":"Leap day snack",
+        "amount":0.01,
+        "category":"Food",
+        "date":"2024-02-29",
+        "createdAt":"2024-02-29T10:00:00.000Z",
+        "updatedAt":"2024-02-29T10:00:00.000Z"
+    },
+    {
+        "id":"rec_0006",
+        "description":"Tuition fee installment",
+        "amount":1250000,
+        "category":"Fees",
+        "date":"2025-01-01",
+        "createdAt":"2025-01-01T00:00:00.000Z",
+        "updatedAt":"2025-01-01T00:00:00.000Z"
+    },
+    {
+        "id":"rec_0007",
+        "description":"New year's eve party",
+        "amount":30,
+        "category":"Entertainment",
+        "date":"2025-12-31",
+        "createdAt":"2025-12-31T22:00:00.000Z",
+        "updatedAt":"2025-12-31T22:00:00.000Z"
+    },
+    {
+        "id":"rec_0008",
+        "description":"Tea tea refill",
+        "amount":2.2,
+        "category":"Food",
+        "date":"2025-09-27",
+        "createdAt":"2025-09-27T10:30:00.000Z",
+        "updatedAt":"2025-09-27T10:30:00.000Z"
+    },
+    {
+        "id":"rec_0009",
+        "description":"Notebook <b>&</b> pens",
+        "amount":5.4,
+        "category":"Oher",
+        "date":"2025-09-26",
+        "createdAt":"2025-09-26T11:00:00.000Z",
+        "updatedAt":"2025-09-26T11:00:00.000Z"
+    },
+    {
+        "id":"rec_0010",
+        "description":"Taxi to the airport",
+        "amount":0,
+        "category":"Transport",
+        "date":"2025-09-30",
+        "createdAt":"2025-09-30T06:00:00.000Z",
+        "updatedAt":"2025-09-30T06:00:00.000Z"
+    },
+    {
+        "id":"rec_0011",
+        "description":"Mid-semester pizza night",
+        "amount":19.99,
+        "category":"Food",
+        "date":"2025-10-05",
+        "createdAt":"2025-10-05T19:00:00.000Z",
+        "updatedAt":"2025-10-05T19:00:00.000Z"                
+    }
+
+]
   
    
   

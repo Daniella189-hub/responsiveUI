@@ -4,9 +4,22 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width", initial-scale="1">
         <title>validator test</title>
+        <style>
+            body{
+                background-color:black;
+                margin:0;
+                padding:0; 
+                color:white;
+                font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            }
+            #classe{
+                background:lineargradient(90deg, #f97316, #ec4899)
+            }
+        </style>
     </head>
     <body>
-        <h1> Validator tests</h1>
+        <div id="classe"><h1> Validator tests</h1></div>
+        
         <ul id="out"></ul>
         <script type="module">
             import{
@@ -22,25 +35,100 @@
                 li.style.color = cond ? '#0a6b3d' : '#b00020';
                 out.append(li);
             };
-            x('description accepts "Lunch"', rules.description.test('Lunch'));
-            x('description rejects leading space', !rules.description.test(' Lunch'));
-            x('description rejects trailing space', !rules.description.test('Lunch '));
-            x('amount accepts 12.50', rules.amount.test('12.50'));
-            x('amount accepts 0', rules.amount.test('0'));
-            x('amount rejects 012', !rules.amount.test('012'));
-            x('amount rejects 1.234', !rules.amount.test('1.234'));
-            x('date accepts 2024-02-29', rules.date.test('2024-02-29'));
-            x('date rejects 2025-13-01', !rules.date.test('2025-13-01'));
-            x('category accepts "Fast-food stuff"', rules.category.test('Fast-food stuff'));
-            x('category rejects digits', !rules.category.test('Food2'));
-            x('duplicate word detected', rules.duplicateWord.test('coffee coffee run'));
-            x('no false duplicate', !rules.duplicateWord.test('coffee run'));
-            x('validateRecord collapses spaces', validateRecord({description:'a   b', amount:'1', category:'Food', date:'2025-01-01'}).value.description === 'a b');
-            x('validateRecord flags bad amount', !validateRecord({description:'a', amount:'abc', category:'Food', date:'2025-01-01'}).ok);
-            x('compileRegex returns null on invalid', compileRegex('(') === null);
-            x('highlight wraps match', highlight('Coffee', compileRegex('cof')) === '<mark>Cof</mark>fee');
-            x('highlight escapes HTML', highlight('<b>', null) === '&lt;b&gt;');
-            x('validateImport rejects non-array', validateImport({}) !== null);
-                </script> 
+            x(
+                'description accepts "Lunch"',
+                rules.descriptions.test('Lunch')
+            );
+            x(
+                'description rejects leading space',
+                !rules.description.test(' Lunch')
+            );
+            x(
+                'description rejects trailing space',
+                !rules.description.test('Lunch ')
+            );
+            x(
+                'amount accepts 12.50', 
+                rules.amount.text('12.50')
+            );
+            x(
+                'amount accepts 0',
+                rules.amount.test('0')
+            );
+            x(
+                'amount rejects 012',
+                !rules.amount.test('012')
+            );
+            x(
+                'amount rejects 1.234',
+                !rules.amount.test('1.234')
+            );
+            x(
+                'date accepts 2024-02-29',
+                !rules.date.test('2024-02-29')
+            );
+            x(
+                'date rejects 2025-13-01',
+                !rules.date.test('2025-13-01')
+            );
+            x(
+                'date rejects 2025-02-30',
+                !rules.date.test('2025-02-30')
+            );
+            x(
+                'category accepts "Fast-food stuff"',
+                rules.category.test('Fast-food stuff')
+            );
+            x(
+                'category rejects digits',
+                !rules.category.test('Food2')
+            );
+            x(
+                'duplicate word detected',
+                rules.duplicateWord.test('coffee coffee run')
+            );
+            x(
+                'no false duplicate', 
+                !rules.duplicateWord.test('coffee run')
+            );
+            x(
+                'validateRecord collapses spaces',
+                validateRecord({
+                    description:'a   b',
+                    amount:'1',
+                    category:'Food', 
+                    date:'2025-01-01'  
+                }).value.description === 'a b'
+
+            );
+            x(
+                'validateRecord flags bad amount',
+                !validateRecord({
+                    description:'a',
+                    amount:'abc',
+                    category:'Food',
+                    date:'2025-01-01'
+                }).ok
+            );
+            x(
+                'compileRegex returns null on invalid',
+                compileRegex('(') === null
+            );
+            x(
+                'highlight wraps match',
+                highlight(
+                    'coffee',
+                    compileRegex('cof')
+                ) === '<mark>Cof</mark>fee'
+            );
+            x(
+                'highlight escapes HTML',
+                highlight('<b>', null) === '&lt;b&gt;'
+            );
+            x(
+                'validateImport rejects non-array',
+                validateImport({}) !== null
+            );
+        </script> 
     </body>
 </html>
