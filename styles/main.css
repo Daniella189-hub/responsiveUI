@@ -1,3 +1,4 @@
+*, *::before, *::after {box-sizing: border-box;}
 body{
     background-color:#0f172a;
     margin: 0;
@@ -245,6 +246,12 @@ button.danger:hover{
     gap:4px;
 }
 
+.actions:has(#import:focus-visible) label[for="import"]{
+    outline: 3px solid #0b5cad;
+    outline-offset: 2px;
+
+}
+
 /*--7-daychart--*/
 .trend{
     display:flex;
@@ -365,6 +372,14 @@ mark{
         transform:none
     }
 }
+
+.two-col{
+    display:grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: start;
+
+}
 /*--Lets talk about responsive websites--*/
 @media (min-width:768px){
     .site-header{
@@ -449,6 +464,10 @@ mark{
     }
 }
 
+.two-col{
+    grid-template-columns:1fr;
+}
+
 /*--hover, focus  effects*/
 button, .card, tbody tr {
     transition:transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
@@ -479,6 +498,8 @@ input:focus, select:focus {
         max-width:1100px;
         margin-inline:auto;
     }
+     
+    #about, #dashboard, #recodtable {grid-column: 1 / -1;}
     #record-form, #settings-form{grid-template-columns:1fr;}
     .site-header, .site-footer{
         padding-inline:calc((100% - 1100px) / 2 + 16px);
@@ -492,4 +513,6 @@ html{
 section{
     scroll-margin-top:80px;
 }
+
+
 

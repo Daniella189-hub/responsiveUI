@@ -35,6 +35,11 @@ import{
     rowText
 } from './ui.js';
 
+const categorySelect = document.getElementById('category');
+const otherWrap = document.getElementById('other-wrap');
+const otherInput = document.getElementById('category-other');
+
+
 const $ =(id) => document.getElementById(id);
 
 function refresh(){
@@ -91,6 +96,7 @@ $('rows'),addEventListener('click', (e) => {
         deleteRecord(id);
         announce('Transaction deleted.');
         refresh();
+        $('search').focus();
     }
 });
 
@@ -132,7 +138,34 @@ $('rows'),addEventListener('click', (e) => {
     e.target.value = '';
 });
 
-    if (!hasData()) {
+    
+//-- Keyboard usage of the webpage
+const links = [...document.querySelectorAll('nav a')];
+document.querySelector('nav').addEventListener('keydown', (e) =>{
+    const i = links.indexOf(document.activeElement);
+    if(i < 0) return;
+    if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
+        e.preventDefault();
+        links[(i + 1) % links.length].focus();
+    }
+    if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
+        links[(i -1 + links.length) % links.length].focus();
+    }
+});
+
+$('rows').addEventListener('keydown', (e) => {
+    if(e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
+    const btn = e.target.closest('button[data-action]');
+    if(!btn) return;
+    const same = [...$('rows').querySelectorAll(`button[data-action ="${btn.dataset.action}"]`)];
+    const next = same[same.indexOf(btn) + (e.key === 'ArrowDown' ? 1 : -1)];
+    if(next) {
+        e.preventDefault();
+        next.focus();
+    }
+})
+
+if (!hasData()) {
         try { setRecords(await (await fetch('seed.json')).json()); } catch { /* start empty */ }
     }
     renderCategories();

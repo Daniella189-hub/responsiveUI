@@ -97,76 +97,82 @@
 				</table>
 			</section>
 <!--ADD/EDIT FORM-->
-
-            <section id="add">
-				<h2>Add/Edit form</h2>
-				<form id="record-form" novalidate>
-					<input type="hidden" id="rec-id">
-					<div class="field">
-						<label for="description">Description</label>
-						<input id="description" autocomplete="off" aria-describedby="description-error">
-						<p class="error" id="description-error"></p>
-					</div>
-					<div class="field">
-						<label for="amount">Amount (base currency)</label>
-						<input id="amount" inputmode="decimal" autocomplete="off" aria-describedby="amount-error">
-						<p class="error" id="amount-error"></p>
-					</div>
-					<div class="field">
-						<label for="category">Category</label>
-						<input id="category" list="category-list" autocomplete="off" aria-describedby="category-error">
-						<datalist id="category-list"></datalist>
-						<p class="error" id="category-error"></p>
-					</div>
-					<div class="field">
-						<label for="date">Date (YYYY-MM-DD)</label>
-						<input id="date" placeholder="2025-09-29" autocomplete="off" aria-describedby="date-error">
-						<p class="error" id="date-error"></p>
-					</div>
-					<div class="actions">
-						<button type="submit" id="save-btn">Add transaction</button>
-						<button type="button" id="cancel-btn" class="secondary" hidden>Cancel edit</button>
-					</div>
-				</form>
-			</section>
-	
-<!--SETTINGS-->
-            <section id="settings">
-				<h2>Settings</h2>
-				<form id="settings-form" novalidate>
-					<div class="field">
-						<label for="cap">Spending cap (USD, base currency)</label>
-						<input id="cap" inputmode="decimal">
-					</div>
-					<fieldset>
-						<legend style="color:linear-gradient(135deg, #667eea,#667eea)"> Exchange rates(1US =...)</legend>
-						<div class="field"><label for="rate-EUR" style="color:black">EURO</label>
-							<input id="rate-EUR" inputmode="decimal"></div>
-						<div class="field"><label for="rate-RWF" style="color:black">RWF</label>
-							<input id="rate-RWF" inputmode="decimal"></div>
-					</fieldset>
-					<br>
-					<br>
-					<div class="field">
-						<label for="display">Display currency</label>
-						<select id="display"><option>USD</option><option>EUR</option><option>RWF</option></select>
-					</div>
-					<div class="field">
-						<label for="categories">Categories</label>
-						<input id="categories">
-					</div>
-					<p id="settings-error" class="error" role="alert"></p>
-					<button type="submit"> Save settings"</button>
-				</form>
-				<h3>Import / Export</h3>
-					<div class="actions">
-						<button type="button" id="export-btn">Export JSON</button>
-						<label for="import" class="button secondary">Import JSON</label>
-						<input id="import" type="file" accept="application/json" class="sr-only">
-					</div>
-					<p id="import-error" class="error" role="alert"></p>
-			</section>
+			<div class="two-col">
+				<section id="add">
+					<h2>Add/Edit form</h2>
+					<form id="record-form" novalidate>
+						<input type="hidden" id="rec-id">
+						<div class="field">
+							<label for="description">Description</label>
+							<input id="description" autocomplete="off" aria-describedby="description-error">
+							<p class="error" id="description-error"></p>
+						</div>
+						<div class="field">
+							<label for="amount">Amount (base currency)</label>
+							<input id="amount" inputmode="decimal" autocomplete="off" aria-describedby="amount-error">
+							<p class="error" id="amount-error"></p>
+						</div>
+						<div class="field">
+							<label for="category">Category</label>
+							<select id="category" list="category-list" placeholder="category" autocomplete="off" aria-describedby="category-error">
+								<option>Food</option><option>Entertainement</option><option>Books</option><option>Transport</option><option>Fees</option>
+								<option>Other</option>
+							</select>
+							<datalist id="category-list"></datalist>
+							<p class="error" id="category-error"></p>
+						</div>
+						<div class="field">
+							<label for="date">Date (YYYY-MM-DD)</label>
+							<input type ="date" id="date" placeholder="2025-09-29" autocomplete="off" aria-describedby="date-error">
+							<p class="error" id="date-error"></p>
+						</div>
+						<div class="actions">
+							<button type="submit" id="save-btn">Add transaction</button>
+							<button type="button" id="cancel-btn" class="secondary" hidden>Cancel edit</button>
+						</div>
+					</form>
+				</section>
+		
+	<!--SETTINGS-->
+				<section id="settings">
+					<h2>Settings</h2>
+					<form id="settings-form" novalidate>
+						<div class="field">
+							<label for="cap">Spending cap (USD, base currency)</label>
+							<input id="cap" inputmode="decimal">
+						</div>
+						<fieldset>
+							<legend style="color:linear-gradient(135deg, #667eea,#667eea)"> Exchange rates(1US =...)</legend>
+							<div class="field"><label for="rate-EUR" style="color:black">EURO</label>
+								<input id="rate-EUR" inputmode="decimal"></div>
+							<div class="field"><label for="rate-RWF" style="color:black">RWF</label>
+								<input id="rate-RWF" inputmode="decimal"></div>
+						</fieldset>
+						<br>
+						<br>
+						<div class="field">
+							<label for="display">Display currency</label>
+							<select id="display"><option>USD</option><option>EUR</option><option>RWF</option></select>
+						</div>
+						<div class="field">
+							<label for="categories">Categories</label>
+							<input id="categories">
+						</div>
+						<p id="settings-error" class="error" role="alert"></p>
+						<button type="submit"> Save settings"</button>
+					</form>
+					<h3>Import / Export</h3>
+						<div class="actions">
+							<button type="button" id="export-btn">Export JSON</button>
+							<label for="import" class="button secondary">Import JSON</label>
+							<input id="import" type="file" accept="application/json" class="sr-only">
+						</div>
+						<p id="import-error" class="error" role="alert"></p>
+				</section>
+			</div>
 		</main>
+
+		</div>
 
 	<footer class="site-footer">
 			<p id="status" role="status" class="sr-only"></p>
