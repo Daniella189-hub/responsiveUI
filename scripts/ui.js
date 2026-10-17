@@ -11,7 +11,7 @@ export function announce(msg){
 
 export function money(n){
     const {rates, display} =state.settings;
-    return(n*(rates[display] ?? 1)).toFixed(2) + ' ' + display;
+    return(n * (rates[display] ?? 1)).toFixed(2) + ' ' + display;
 }
 
 export const rowText = (r) => `${r.date} ${r.description} ${money(r.amount)} ${r.category}`;
@@ -26,11 +26,11 @@ export function renderTable(rows, re){
     <tr>
         <td data-label="Date">${highlight(r.date, re)}</td>
         <td data-label="Description">${highlight(r.description, re)}</td>
-        <td data-label="Amount>${highlight(money(r.amount), re)}</td>
-        <td data-label="Category>${highlight(r.category, re)}</td>
-        <td data-label="Actions> 
+        <td data-label="Amount">${highlight(money(r.amount), re)}</td>
+        <td data-label="Category">${highlight(r.category, re)}</td>
+        <td data-label="Actions"> 
             <button type="button" class="secondary" data-action="edit" data-id="${esc(r.id)}" aria-label="Edit ${esc(r.description)}">Edit</button>
-            <button type="button" class="danger" data-action=delete" data-id="${esc(r.id)}" aria-label="Delete ${esc(r.description)}">Delete</button>
+            <button type="button" class="danger" data-action="delete" data-id="${esc(r.id)}" aria-label="Delete ${esc(r.description)}">Delete</button>
         </td>
         </tr>`).join('');
 }
@@ -45,7 +45,7 @@ export function renderStats(){
     const counts={};
     records.forEach((r) => { counts[r.category] = (counts[r.category] || 0) + 1;});
     const top = Object.entries(counts).sort((a, b) => b[1] - a[1]) [0];
-    $('stat-top').textContent =top ? `${top[0]} (${top[1]})` : '–';
+    $('stat-top').textContent = top ? `${top[0]} (${top[1]})` : '–';
 
 
     const msg = $('cap-message');

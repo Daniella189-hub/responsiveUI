@@ -6,11 +6,17 @@ export const rules = {
     duplicateWord: /\b(\w+)\s+\1\b/i,
     email: /^[A-Za-z0-9._%+-]+@alustudent\.com$/i,
     githubUser : /^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$/,
-    githubURL : /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w.-]+)?\/?$/,
+    githubUrl : /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w.-]+)?\/?$/,
     
 };
 
 export const normalize =(s) => String(s ?? '').trim().replace(/\s{2,}/g, ' ');
+export function isRealDate(s){
+    if(!rules.date.test(s)) return false;
+    const [y, m, d] = s.split('-').map(Number);
+    const dt = new Date(Date.UTC(y, m-1, d));
+    return dt.getUTCFullYear() === y && dt.getUTCMonth() === m - 1 && dt.getUTCDate() === d;
+}
 
 export function validateRecord(raw){
     const errors ={};
@@ -23,7 +29,7 @@ export function validateRecord(raw){
     else if (rules.duplicateWord.test(description)) errors.description ='Repeated word found (e.g. "the the"). Remove it';
     if(!rules.amount.test(amount)) errors.amount = 'Use a number like 12 or 12.50 (max 2 decimals, no zeros)';
     if(!rules.category.test(category)) errors.category ='Use letters, spaces or hyphens only';
-    if(!rules.date.test(date)) errors.date = 'Use the format YYY-MM-DD';
+    if(!isRealDate(date)) errors.date = 'Use a real date in the format YYY-MM-DD';
 
     return {
         ok: Object.keys(errors).length === 0,

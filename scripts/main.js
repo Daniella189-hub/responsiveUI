@@ -1,7 +1,7 @@
 import{
     state,
     addRecord,
-    updateRecord,
+    updatedRecord,
     deleteRecord,
     setRecords,
     updateSettings
@@ -16,7 +16,7 @@ import{
     compileRegex,
     filterRecords,
     sortRecords
-} from './main.js';
+} from './search.js';
 
 import{
     hasData,
@@ -75,7 +75,7 @@ $('record-form').addEventListener('submit', (e) => {
         return;
     }
     const id = $('rec-id').value;
-    if (id) {updateRecord(id, value); announce('Transaction updated.');}
+    if (id) {updatedRecord(id, value); announce('Transaction updated.');}
     else{
         addRecord(value);
         announce('Transaction added.');
@@ -84,14 +84,25 @@ $('record-form').addEventListener('submit', (e) => {
     refresh();
 });
 
-
+$('cancel-btn').addEventListener('click', () => {
+    clearForm();
+    announce(
+        'Edit cancelled.'
+    )
+});
 $('rows'),addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-action]');
     if(!btn) return;
     const id = btn.dataset.id;
     if(btn.dataset.action === 'edit'){
         const r = state.records.find((x) => x.id === id);
-        if (r) { fillForm(r); $('form').scrollIntoView(); }
+        if (r) { 
+            const formPage = $('record-form').closest('section');
+            if (formPage.id) location.hash = '#' + formPage.id;
+            showPage(formPage);
+            fillForm(r);
+        }
+
     } else if (confirm('Delete this transaction?')) {
         deleteRecord(id);
         announce('Transaction deleted.');
@@ -166,17 +177,17 @@ document.addEventListener('keydown', (e) => {
         const step = e.key === 'ArrowDown' || e.key ==='ArrowRight' ? 1 : -1;
         e.preventDefault();
         items[i < 0 ? 0 : (i + step + items.length) % items.length].focus();
-})
+});
 
 //--checking emails and github links
 (function checkContactLinks(){
     const mail = document.querySelector('#about a[href^="mailto:"]');
-    const gh = document.querySelector('#about a[href*=""github.com"]');
+    const gh = document.querySelector('#about a[href*="github.com"]');
     const email = mail ? mail.getAttribute('href').replace(/^mailto:/i, '') : '';
     const url = gh ? gh.getAttribute('href') : '';
     const problems = [];
     if(!rules.email.test(email)) problems.push('email must end with @alustudent.com');
-    if(!rules.githubURL.test(url)) problems.push('GitHub link must look like https://github.com/username');
+    if(!rules.githubUrl.test(url)) problems.push('GitHub link must look like https://github.com/username');
     if (problems.length){
         console.warn('Contact check failed:', problems.join('; '));
         announce(' some contact details need fixing(About section)');    
@@ -185,6 +196,27 @@ document.addEventListener('keydown', (e) => {
     }
 })();
 
+const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+const pages = navLinks
+    .map((a) => document.getElementById(a.getAttribute('href').slice(1)))
+    .filter(Boolean);
+
+function showPage(page){
+    new Set([...pages, page]).forEach((p) => { p.hidden = p !== page; });
+    navLinks.forEach((a) => {
+        if (a.getAttribute('href') === '#' + page.id) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+    const h = page.querySelector('h2');
+    if (h) announce(h.textContent + ' page');
+}
+function routeFromHash(){
+    const page = pages.find((p) => p.id === location.hash.slice(1)) || pages[0];
+    if (page) showPage(page);
+}
+window.addEventListener('hashchange', routeFromHash);
+routeFromHash();
 
 if (!hasData()) {
         try { setRecords(await (await fetch('seed.json')).json()); } catch { /* start empty */ }

@@ -1,7 +1,7 @@
 import {load, save, loadSettings, saveSettings} from './storage.js';
 export const state = {records: load(), settings: loadSettings()};
 function nextId(){
-    const n =state.records.reduce((m,r) => Math.max(m, parseInt(String(r.id).split('_')[1], 10) || 0), 0) + 1;
+    const n =state.records.reduce((m, r) => Math.max(m, parseInt(String(r.id).split('_')[1], 10) || 0), 0) + 1;
     return 'rec_' + String(n).padStart(4, '0');
 }
 export function addRecord(data){

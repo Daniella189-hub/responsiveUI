@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
 		<link rel="stylesheet" href="styles/main.css">
+		<link rel="icon" href="data:,">
 
 	</head>
 
@@ -34,14 +35,14 @@
 				<ul>
 					<li><p>This app is mainly for tracking the student finance</p></li>
 					<li><p>As our student you are required to provide  your Github and Email account</p></li>
-					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@example.com">email</a><br><br> Fill out the form below</p></li>
+					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@alustudent.com">email</a><br><br> Fill out the form below</p></li>
 				</ul>
 				<div>
 					<form action="/signup" method="">
 					<fieldset>
 						<legend>Info</legend>
 						<label for="Github">Github:</label>
-						<input type="text" id="Github" name="Github" required> <br><br>
+						<input type="text" id="Github" name="Github" placeholder="github" required> <br><br>
 						<label for="email">email:</label>
 						<input type="email" id="email" name="email" placeholder="e.g:abcd@alustudent.com"required><br><br>
 						<input type="submit" value="submit" style="background-color:lightskyblue">
@@ -55,9 +56,9 @@
 
 				<h2 id="dash-h">Dashboard</h2>
 				<div class="stats">
-					<div class="card"><h3>Total records</h3><p id="stat-count" class="big">0</p></div>
-					<div class="card"><h3>Total spent(numeric field)</h3><p id="stat-sum" class="big">0</p></div>
-					<div class="card"><h3>Top category</h3><p id="stat-top" class="big">-</p></div>
+					<div class="card"><h3>Total records</h3><p id="stat-count" class="big" style="color:black">0</p></div>
+					<div class="card"><h3>Total spent(numeric field)</h3><p id="stat-sum" class="big" style="color:black">0</p></div>
+					<div class="card"><h3>Top category</h3><p id="stat-top" class="big" style="color:black">-</p></div>
 				</div>
 				<p id="cap-message" class="cap" aria-live="polite" aria-atomic="true"></p>
 				<h3>Last 7 days</h3>
@@ -99,17 +100,17 @@
 <!--ADD/EDIT FORM-->
 			<div class="two-col">
 				<section id="add">
-					<h2>Add/Edit form</h2>
+					<h2>Transactions</h2>
 					<form id="record-form" novalidate>
 						<input type="hidden" id="rec-id">
 						<div class="field">
 							<label for="description">Description</label>
-							<input id="description" autocomplete="off" aria-describedby="description-error">
+							<input id="description" autocomplete="off" aria-describedby="description-error" placeholder="Be brief">
 							<p class="error" id="description-error"></p>
 						</div>
 						<div class="field">
 							<label for="amount">Amount (base currency)</label>
-							<input id="amount" inputmode="decimal" autocomplete="off" aria-describedby="amount-error">
+							<input id="amount" inputmode="decimal" autocomplete="off" aria-describedby="amount-error" placeholder="RWF120000">
 							<p class="error" id="amount-error"></p>
 						</div>
 						<div class="field">
@@ -123,7 +124,7 @@
 						</div>
 						<div class="field">
 							<label for="date">Date (YYYY-MM-DD)</label>
-							<input type ="date" id="date" placeholder="2025-09-29" autocomplete="off" aria-describedby="date-error">
+							<input  id="date" placeholder="2025-09-29" autocomplete="off" aria-describedby="date-error">
 							<p class="error" id="date-error"></p>
 						</div>
 						<div class="actions">
@@ -175,15 +176,14 @@
 		</div>
 
 	<footer class="site-footer">
-			<p id="status" role="status" class="sr-only"></p>
-			<script type="module" src="scripts/main.js"></script>
+
 
 		<div class="para2"; style="background:linear-gradient(135deg, #667eea, #0b5cad); height:180px">
 			<h4 style="color:peachpuff">Contact Us</h4>
-			<img src="C:\Users\HP\Downloads\pexels-dziana-hasanbekava-7063762.jpg", width="200", larg="200", height="300", align="left", loading="lazy">
+			<img class="hero1" src="assets/hero.jpg" alt="Student budgeting at a desk" width="200" larg="200" height="300" align="left", loading="lazy">
 			<div class="kid">
 				<ul>
-					<li>For more inquiries, please reach out to us at <a href="mailto:daniellani@gmail.com">daniellani@gmail.com</a></li>
+					<li>For more inquiries, please reach out to us at <a href="mailto:daniellani@student.com">daniellani@gmail.com</a></li>
 					<li>For more orders, please contact us on the number<a href="tel:+254798123456">+254798123456</a></li>
 					<li> Thank you for your trust and serve you</li>
 				</ul>
@@ -191,6 +191,8 @@
 		</div>
 		<p align="right">&copy; 2026 Finance Tracker. All rights reserved.</p>
 	</footer>
+	<p id="status" role="status" class="sr-only"></p>
+	<script type="module" src="scripts/main.js"></script>
 	</body>
 <html>
 	

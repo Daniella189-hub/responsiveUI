@@ -23,7 +23,7 @@
         <ul id="out"></ul>
         <script type="module">
             import{
-                rules, validateRecord, validateImport
+                rules, validateRecord, validateImport, isRealDate
             } from './scripts/validators.js';
             import{
                 compileRegex, highlight
@@ -31,13 +31,13 @@
             const out = document.getElementById('out');
             const x=(name, cond) => {
                 const li=document.createElement('li');
-                li.textContent=(cond ? 'PASS:' : 'FAIL: ') + name;
+                li.textContent=(cond ? 'PASS: ' : 'FAIL: ') + name;
                 li.style.color = cond ? '#0a6b3d' : '#b00020';
                 out.append(li);
             };
             x(
                 'description accepts "Lunch"',
-                rules.descriptions.test('Lunch')
+                rules.description.test('Lunch')
             );
             x(
                 'description rejects leading space',
@@ -49,7 +49,7 @@
             );
             x(
                 'amount accepts 12.50', 
-                rules.amount.text('12.50')
+                rules.amount.test('12.50')
             );
             x(
                 'amount accepts 0',
@@ -65,7 +65,7 @@
             );
             x(
                 'date accepts 2024-02-29',
-                !rules.date.test('2024-02-29')
+                rules.date.test('2024-02-29')
             );
             x(
                 'date rejects 2025-13-01',
@@ -73,7 +73,11 @@
             );
             x(
                 'date rejects 2025-02-30',
-                !rules.date.test('2025-02-30')
+                !isRealDate('2025-02-30')
+            );
+            x(
+                'date accepts a real date', 
+                isRealDate('2026-01-09')
             );
             x(
                 'category accepts "Fast-food stuff"',
@@ -117,7 +121,7 @@
             x(
                 'highlight wraps match',
                 highlight(
-                    'coffee',
+                    'Coffee',
                     compileRegex('cof')
                 ) === '<mark>Cof</mark>fee'
             );

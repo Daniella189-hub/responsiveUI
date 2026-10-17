@@ -1,13 +1,13 @@
-export function compileRegex(input, flags='i'){
+export function compileRegex(input, flags= 'i'){
     try{
-        return input ? new RegeExp(input, flags.includes('g') ? flags : flags + 'g'):null;
+        return input ? new RegExp(input, flags.includes('g') ? flags : flags + 'g') : null;
     } catch{
         return null;
     }
 }
 
 export const esc =(s) =>
-    String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;' , '<': '&lt', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
+    String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;' , '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'}[c]));
 
 export function highlight(text, re){
     text = String(text);
@@ -15,13 +15,13 @@ export function highlight(text, re){
     let out = '', last = 0;
     for (const m of text.matchAll(re)){
         if(!m[0]) continue;
-        out += esc(text.slice(last, m.index)) + '<mark>' + esc(m[0]) + '<mark>';
+        out += esc(text.slice(last, m.index)) + '<mark>' + esc(m[0]) + '</mark>';
         last =m.index + m[0].length;
     }
     return out + esc(text.slice(last));
 }
 
-export const filterRecords = (rows, re, toText) => rows.filter((r) => toText(r).search(re) >=0);
+export const filterRecords = (rows, re, toText) => rows.filter((r) => toText(r).search(re) >= 0);
 export function sortRecords(rows, key, dir){
     const m = dir === 'asc' ? 1 : -1;
     return [...rows].sort((a,b) =>
