@@ -4,6 +4,9 @@ export const rules = {
     date:/^\d{4}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/,
     category:/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/,
     duplicateWord: /\b(\w+)\s+\1\b/i,
+    email: /^[A-Za-z0-9._%+-]+@alustudent\.com$/i,
+    githubUser : /^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$/,
+    githubURL : /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w.-]+)?\/?$/,
     
 };
 

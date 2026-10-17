@@ -140,30 +140,51 @@ $('rows'),addEventListener('click', (e) => {
 
     
 //-- Keyboard usage of the webpage
-const links = [...document.querySelectorAll('nav a')];
-document.querySelector('nav').addEventListener('keydown', (e) =>{
-    const i = links.indexOf(document.activeElement);
-    if(i < 0) return;
-    if(e.key === 'ArrowRight' || e.key === 'ArrowDown'){
-        e.preventDefault();
-        links[(i + 1) % links.length].focus();
-    }
-    if(e.key === 'ArrowLeft' || e.key === 'ArrowUp'){
-        links[(i -1 + links.length) % links.length].focus();
-    }
-});
+const FOCUSABLE = 'a[href], button:not([disabled]), input:not([type="hidden"]), select, textarea';
 
-$('rows').addEventListener('keydown', (e) => {
-    if(e.key !== 'ArrowDown' && e.key !== 'ArrowUp') return;
-    const btn = e.target.closest('button[data-action]');
-    if(!btn) return;
-    const same = [...$('rows').querySelectorAll(`button[data-action ="${btn.dataset.action}"]`)];
-    const next = same[same.indexOf(btn) + (e.key === 'ArrowDown' ? 1 : -1)];
-    if(next) {
+document.addEventListener('keydown', (e) => {
+    if(e.altKey || e.ctrlKey || e.metaKey) return;
+    const el = document.activeElement;
+    const isText = el.matches('input:not([type="checkbox"]):not([type="file"]),select, textarea');
+    const isSelect = el.matches('select');
+
+    if (e.key === 'Backspace' && !isText && !isSelect){
         e.preventDefault();
-        next.focus();
+        history.back();
+        return;
+
     }
+
+    if(!['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+    if(isSelect) return; 
+    if(isText && (e.key === 'ArrowLeft' || e.key === 'ArrowRight')) return;
+    if(isText && el.hasAttribute('list')) return;
+
+    const items = [...document.querySelectorAll(FOCUSABLE)]
+        .filter((x) => x.offsetParent !==null);
+        const i = items.indexOf(el);
+        const step = e.key === 'ArrowDown' || e.key ==='ArrowRight' ? 1 : -1;
+        e.preventDefault();
+        items[i < 0 ? 0 : (i + step + items.length) % items.length].focus();
 })
+
+//--checking emails and github links
+(function checkContactLinks(){
+    const mail = document.querySelector('#about a[href^="mailto:"]');
+    const gh = document.querySelector('#about a[href*=""github.com"]');
+    const email = mail ? mail.getAttribute('href').replace(/^mailto:/i, '') : '';
+    const url = gh ? gh.getAttribute('href') : '';
+    const problems = [];
+    if(!rules.email.test(email)) problems.push('email must end with @alustudent.com');
+    if(!rules.githubURL.test(url)) problems.push('GitHub link must look like https://github.com/username');
+    if (problems.length){
+        console.warn('Contact check failed:', problems.join('; '));
+        announce(' some contact details need fixing(About section)');    
+    } else{
+        console.log('contact check passed')
+    }
+})();
+
 
 if (!hasData()) {
         try { setRecords(await (await fetch('seed.json')).json()); } catch { /* start empty */ }

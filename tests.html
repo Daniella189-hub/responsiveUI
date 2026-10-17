@@ -128,7 +128,35 @@
             x(
                 'validateImport rejects non-array',
                 validateImport({}) !== null
+            )
+            x(
+                'email accepts a.b2alustudent.com',
+                rules.email.test(
+                    'a.b@alustudent.com'
+                )
             );
+            x(
+                'email rejects gmail', 
+                !rules.email.test (
+                    'a.b@gmail.com'
+                )
+            );
+            x(
+                'email rejects fake subdomain',
+                !rules.email.test(
+                    'a@alustudent.com.evil.org'
+                )
+            );
+            x(
+                'email rejects missing @',
+                !rules.email.test(
+                    'a.balustudent.com'
+                )
+            );
+            x(
+                'email rejects lookalike',
+                !rules.email.test('a@alustudent.co')
+            )
         </script> 
     </body>
 </html>
