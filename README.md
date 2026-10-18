@@ -101,8 +101,8 @@ The project emphasizes responsive design, inpit validation, accessibiblity and c
   | Date | `^\d{4}-(0[1-9]\|1[--2])-(0[1-9]\|[12]\d\|3[01]$` | 2025-09-29 ok |
   | Search examples | `\.d{2}\b`, `(coffee\|tea)` |cents present |
   | email | `^[A-Za-z0-9._%+-]+@alustudent\.com$/i,` | daniella@alustudent.com
-  | githubUser | `^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$` |
-  | githubUrl | `^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w._]+)?\/?$` |  
+  | githubUser | `^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$` | daniella-hub
+  | githubUrl | `^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w._]+)?\/?$)` | 
 
   ## Keyboard map 
   -`Tab` / `Shift+Tab`: move between controls; first stop is "Skip to main content"
