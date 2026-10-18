@@ -5,8 +5,8 @@ export const rules = {
     category:/^[A-Za-z]+(?:[ -][A-Za-z]+)*$/,
     duplicateWord: /\b(\w+)\s+\1\b/i,
     email: /^[A-Za-z0-9._%+-]+@alustudent\.com$/i,
-    githubUser : /^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$/,
-    githubUrl : /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w.-]+)?\/?$/,
+    githubUser: /^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$/,
+    githubUrl: /^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w.-]+)?\/?$/,
     
 };
 
