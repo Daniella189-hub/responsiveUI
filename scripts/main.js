@@ -100,8 +100,10 @@ $('rows').addEventListener('click', (e) => {
     if(btn.dataset.action === 'edit'){
         const r = state.records.find((x) => x.id === id);
         if (r) { 
+            openPage('add');
+            history.pushState(null, '', '#add');
             fillForm(r);
-            $('form').scrollIntoView();}
+        }
         } else if  (confirm ('Delete this transaction?')){
             deleteRecord(id);
             announce('Transaction deleted');
@@ -194,6 +196,38 @@ document.addEventListener('keydown', (e) => {
         console.log('contact check passed')
     }
 })();
+
+const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
+const unit = (el) => el && (el.closest('section') || el);
+const idOf = (a) => a.getAttribute('href'.slice(1));
+const pageList = [...new Set(navLinks.map((a) => unit(document.getElementById(idOf(a)))).filter(Boolean))];
+
+function openPage(ref){
+    const t = typeof ref === 'string' ? unit(document.getElementById(ref)) :unit (ref);
+    if (!t) return ;
+    pageList.forEach((x) => {
+        x.hidden = !(x === t || x.contains(t) || t.contains(x));
+    });
+    for (
+        let el = t;
+        el && el !== document.body;
+        el = el.parentElement
+    ) el.hidden = false;
+    navLinks.forEach((a) => {
+        if (unit(document.getElementById(idOf(a))) === t) a.setAttribute('aria-current', 'page');
+        else a.removeAttribute('aria-current');
+    });
+    window.scrollTo(0, 0);
+    const h = t.querySlector('h2');
+    if (h) announce(h.textContent + ' page');
+}
+
+function route() {
+    const link = navLinks.find((a) => idOf(a) === location.hash.slice(1)) || navLinks[0];
+    if (link) openPage(idOf(link));
+}
+ window.addEventListener('hashchange', route);
+ route();
 
 
 if (!hasData()) {

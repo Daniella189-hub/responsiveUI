@@ -528,18 +528,12 @@ section{
     scroll-margin-top:80px;
 }
 
-main > section {
-    display: none;
+[hidden]{
+    display: none !important;
 }
-main > section.active{
-    display: block;
-}
-@media (
-    min-width:1024px
-){
-    main{
-        display:block;
-    }
+nav a[aria-current = "page"]{
+    font-weight: 700;
+    text-decoration: underline;
 }
 
 
