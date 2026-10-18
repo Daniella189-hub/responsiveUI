@@ -230,6 +230,57 @@ function route() {
  route();
 
 
+//-- Registry: register email + GitHub (needs the Apps Script URL below)
+const REGISTRY_URL = '';   // paste your Google Apps Script Web app URL between the quotes
+
+function regFields() {
+    const email = $('reg-email').value.trim();
+    const github = $('reg-github').value.trim().replace(/^https:\/\/github\.com\//i, '').replace(/\/$/, '');
+    const eErr = rules.email.test(email) ? '' : 'Use your @alustudent.com email.';
+    const gErr = rules.githubUser.test(github) ? '' : 'Enter a GitHub username, like my-name.';
+    $('reg-email-error').textContent = eErr;
+    $('reg-github-error').textContent = gErr;
+    return { email, github, ok: !eErr && !gErr };
+}
+
+$('reg-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const st = $('reg-status');
+    st.style.color = '';
+    const { email, github, ok } = regFields();
+    if (!ok) { st.textContent = 'Please fix the fields above.'; announce('Registration has errors.'); return; }
+    if (!$('reg-consent').checked) { st.textContent = 'Please tick the consent box first.'; announce('Consent is needed.'); return; }
+    if (!REGISTRY_URL) { st.textContent = 'The registry is not set up yet (REGISTRY_URL is empty).'; return; }
+    st.textContent = 'Sending...';
+    try {
+        await fetch(REGISTRY_URL, {
+            method: 'POST',
+            mode: 'no-cors',
+            headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+            body: JSON.stringify({ email, github, consent: true, transactions: state.records })
+        });
+        st.style.color = '#4ade80';
+        st.textContent = 'Registered. Thank you!';
+        announce('Registered.');
+    } catch {
+        st.textContent = 'Could not reach the registry. Check your connection and try again.';
+    }
+});
+
+$('reg-email-btn').addEventListener('click', () => {
+    const email = $('reg-email').value.trim();
+    const st = $('reg-status');
+    st.style.color = '';
+    if (!rules.email.test(email)) { $('reg-email-error').textContent = 'Use your @alustudent.com email.'; return; }
+    $('reg-email-error').textContent = '';
+    const lines = [...state.records]
+        .sort((a, b) => b.date.localeCompare(a.date))
+        .slice(0, 20)
+        .map((r) => `${r.date} | ${r.description} | ${r.amount.toFixed(2)} | ${r.category}`);
+    const body = `My transactions (latest ${lines.length} of ${state.records.length}):\n\n` + lines.join('\n');
+    window.location.href = 'mailto:' + email + '?subject=' + encodeURIComponent('My transactions') + '&body=' + encodeURIComponent(body);
+});
+
 if (!hasData()) {
         try { setRecords(await (await fetch('seed.json')).json()); } catch { /* start empty */ }
     }

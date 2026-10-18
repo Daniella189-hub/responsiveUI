@@ -84,14 +84,33 @@
     {
         "id":"rec_0010",
         "description":"Taxi to the airport",
-        "amount":0,
+        "amount":50,
         "category":"Transport",
         "date":"2025-09-30",
         "createdAt":"2025-09-30T06:00:00.000Z",
         "updatedAt":"2025-09-30T06:00:00.000Z"
     },
     {
-        "id":"rec_0011",
+        "id": "rec_0011",
+        "description":"restaurant for rendez-vous",
+        "amount":200,
+        "category":"Food",
+        "date":"2026-10-12",
+        "createdAt":"2026-09-30T10:00:00.000Z",
+        "updatedAt":"2026-09-30T10:00:00.000Z"
+    },
+    {
+        "id": "rec_0012",
+        "description":"Hotel room",
+        "amount":"500",
+        "category":"Other",
+        "date":"2026-10-12",
+        "ceatedAt":"2026-10-12T12:00:00.000Z",
+        "updatedAt":"2026-10-12T12:00:00.000Z",
+
+    }
+    {
+        "id":"rec_0013",
         "description":"Mid-semester pizza night",
         "amount":19.99,
         "category":"Food",
@@ -100,7 +119,7 @@
         "updatedAt":"2025-10-05T19:00:00.000Z"                
     },
     {
-        "id":"rec_0012",
+        "id":"rec_0014",
         "description":"Data bundle top-up",
         "amount":10,
         "category":"Fees",
@@ -109,7 +128,7 @@
         "updatedAt":"2026-10-17T08:00:00.000Z"
     },
     {
-        "id":"rec_0013",
+        "id":"rec_0015",
         "description": "Campus bookshop notebook",
         "amount":3.5,
         "category":"Books",
@@ -118,7 +137,7 @@
         "updatedAt":"2026-10-16T09:30:00:00.000Z"
     },
     {
-        "id":"rec_0014",
+        "id":"rec_0016",
         "description":"Moto ride to class",
         "amount":1.2,
         "category":"Transport",
@@ -127,7 +146,7 @@
         "updatedAt":"2026-10-15T07:00:00.000Z"
     },
     {
-        "id":"rec_0015",
+        "id":"rec_0017",
         "description":"Fast-food lunch",
         "amount":6.75,
         "category":"Fast-food",
@@ -136,25 +155,25 @@
         "updatedAt":"2026-10-14T12:30:00.000Z"
     },
     {
-        "id":"rec_0016",
+        "id":"rec_0018",
         "description":"The the printing fee",
         "amount":0.5,
         "category":"Fees",
         "date":"2026-10-13",
-        "createdAt":"2026-10-13T10:00:00.000Z",
-        "updatedAt":"2026-10-13T10:00:00.000Z"
+        "createdAt":"2026-10-14T10:00:00.000Z",
+        "updatedAt":"2026-10-14T10:00:00.000Z"
     },
     {
-        "id":"rec_0017",
+        "id":"rec_0019",
         "description":"Movie night with \"popcorn\" & friends",
         "amount":15.99,
         "category":"Entertainment",
         "date":"2026-10-12",
-        "createdAt":"2026-10-12T20:00:00.000Z",
-        "updatedAt":"2026-10-12T20:00:00.000Z"
+        "createdAt":"2026-10-14T20:00:00.000Z",
+        "updatedAt":"2026-10-14T20:00:00.000Z"
     },
     {
-        "id":"rec_0018",
+        "id":"rec_0020",
         "description":"Coffee, tea and snacks",
         "amount":7.2,
         "category":"Food",
@@ -163,25 +182,25 @@
         "updatedAt":"2026-10-11T16:00:00.000Z"
     },
     {
-        "id":"rec_0019",
+        "id":"rec_0021",
         "description":"Laptop repair",
         "amount": 99999.99,
         "category":"Other",
         "date":"2026-10-10",
-        "createdAt":"2026-02-28T11:00:00.000Z",
-        "updatedAt":"2026-02-28T11:00.00.000Z"
+        "createdAt":"2026-10-12T11:00:00.000Z",
+        "updatedAt":"2026-10-12T11:00.00.000Z"
     },
     {
-        "id":"rec_0020",
+        "id":"rec_0022",
         "description":"A",
         "amount":0.01,
         "category":"Other",
         "date":"2000-01-01",
-        "createdAt": "2000-01-01T00:00:00.000Z",
-        "updatedAt":"2000-01-01T00:00:00.000Z"
+        "createdAt": "2026-10-13T00:00:00.000Z",
+        "updatedAt":"2000-10-13T00:00:00.000Z"
     },
     {
-        "id":"rec_0021",
+        "id":"rec_0023",
         "description":"Scholarship refund fee",
         "amount":120,
         "category":"Fees",
@@ -189,6 +208,8 @@
         "createdAt":"2026-10-17T09:00:00.000Z",
         "updatedAt":"2026-10-17T09:00:00.000Z"
     }
+
+
 
 
 ]

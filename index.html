@@ -169,7 +169,27 @@
 							<input id="import" type="file" accept="application/json" class="sr-only">
 						</div>
 						<p id="import-error" class="error" role="alert"></p>
-				</section>
+				
+  <h3>Register (optional)</h3>
+  <form id="reg-form" novalidate>
+    <div class="field">
+      <label for="reg-email">Email (@alustudent.com)</label>
+      <input id="reg-email" type="text" inputmode="email" autocomplete="email" aria-describedby="reg-email-error">
+    </div>
+    <p class="error" id="reg-email-error"></p>
+    <div class="field">
+      <label for="reg-github">GitHub username</label>
+      <input id="reg-github" type="text" autocomplete="off" aria-describedby="reg-github-error">
+    </div>
+    <p class="error" id="reg-github-error"></p>
+    <label class="check"><input type="checkbox" id="reg-consent"> I agree that my email, GitHub username and transactions are saved by the project owner to show who has registered. To have them deleted, I can email the address in the About section.</label>
+    <div class="actions">
+      <button type="submit">Register</button>
+      <button type="button" id="reg-email-btn" class="secondary">Email me my transactions</button>
+    </div>
+    <p class="error" id="reg-status" role="status"></p>
+  </form>
+</section>
 			</div>
 		</main>
 
