@@ -5,7 +5,8 @@
 **Live site (GitHub Pages):** https://daniella189-hub.github.io/responsiveUI/
 
 **Repo:** https://github.com/Daniella189-hub/responsiveUI
-**Demo video(unlisted):**
+
+**Demo video(unlisted):** https://youtu.be/Pl9is5rGuxg 
 **Description:** A responive, accessible, and interactive web application for managing student expenses and building better financial habits
 
 ## About the Project
@@ -17,6 +18,10 @@ The project emphasizes responsive design, inpit validation, accessibiblity and c
 
 
 ## Features
+  ### Fetching the credentials of a student
+     - Using a google sheet to process  the information and the student that have registered
+     -check the regex for students who are not from alu
+     - Used App scripts to configure the fetching and the storing of the data 
    ### Transaction Management
     - Add, edit, and delete financial transactions.
     - Validate transaction inputs using regular expressions.
