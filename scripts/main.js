@@ -71,11 +71,13 @@ $('record-form').addEventListener('submit', (e) => {
     showErrors(errors);
     if(!ok) {
         announce(`${Object.keys(errors).length} error(s) in the form. Please fix them.`);
-        $(Object.keys(errors)[0].focus());
+        $(Object.keys(errors)[0]).focus();
         return;
     }
     const id = $('rec-id').value;
-    if (id) {updatedRecord(id, value); announce('Transaction updated.');}
+    if (id) {
+        updatedRecord(id, value);
+        announce('Transaction updated.');}
     else{
         addRecord(value);
         announce('Transaction added.');
@@ -90,26 +92,23 @@ $('cancel-btn').addEventListener('click', () => {
         'Edit cancelled.'
     )
 });
-$('rows'),addEventListener('click', (e) => {
+
+$('rows').addEventListener('click', (e) => {
     const btn = e.target.closest('button[data-action]');
     if(!btn) return;
     const id = btn.dataset.id;
     if(btn.dataset.action === 'edit'){
         const r = state.records.find((x) => x.id === id);
         if (r) { 
-            const formPage = $('record-form').closest('section');
-            if (formPage.id) location.hash = '#' + formPage.id;
-            showPage(formPage);
             fillForm(r);
+            $('form').scrollIntoView();}
+        } else if  (confirm ('Delete this transaction?')){
+            deleteRecord(id);
+            announce('Transaction deleted');
+            refresh();
         }
-
-    } else if (confirm('Delete this transaction?')) {
-        deleteRecord(id);
-        announce('Transaction deleted.');
-        refresh();
-        $('search').focus();
-    }
 });
+     
 
     $('settings-form').addEventListener('submit', (e) => {
     e.preventDefault();
@@ -147,7 +146,7 @@ $('rows'),addEventListener('click', (e) => {
         announce('Import failed.');
     }
     e.target.value = '';
-});
+    });
 
     
 //-- Keyboard usage of the webpage
@@ -196,27 +195,6 @@ document.addEventListener('keydown', (e) => {
     }
 })();
 
-const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
-const pages = navLinks
-    .map((a) => document.getElementById(a.getAttribute('href').slice(1)))
-    .filter(Boolean);
-
-function showPage(page){
-    new Set([...pages, page]).forEach((p) => { p.hidden = p !== page; });
-    navLinks.forEach((a) => {
-        if (a.getAttribute('href') === '#' + page.id) a.setAttribute('aria-current', 'page');
-        else a.removeAttribute('aria-current');
-    });
-    window.scrollTo(0, 0);
-    const h = page.querySelector('h2');
-    if (h) announce(h.textContent + ' page');
-}
-function routeFromHash(){
-    const page = pages.find((p) => p.id === location.hash.slice(1)) || pages[0];
-    if (page) showPage(page);
-}
-window.addEventListener('hashchange', routeFromHash);
-routeFromHash();
 
 if (!hasData()) {
         try { setRecords(await (await fetch('seed.json')).json()); } catch { /* start empty */ }

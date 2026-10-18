@@ -541,17 +541,6 @@ main > section.active{
         display:block;
     }
 }
-nav[aria-current="page"]{
-    font-weight:700;
-    text-decoration: underline;
-}
-[hidden]{
-    display: none !important;
-    nav a[aria-current="page"]{
-        font-weight: 700;
-        text-decoration:underline;
-    }
-}
 
 
 
