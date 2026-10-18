@@ -229,9 +229,9 @@ function route() {
 }
  window.addEventListener('hashchange', route);
  route();
- 
+
 //--Registry: register email + GitHub (need the Apps Script URL below)
-const REGISTRY_URL = 'https://script.google.com/macros/s/AKfycbzcmbBd66TqZpXg7J9Wkh-OmqwvkySjYsf_xBalecRQBa4krKuCdE9XbslOq6hKp3olkg/exec/
+const REGISTRY_URL = 'https://script.google.com/macros/s/AKfycbzcmbBd66TqZpXg7J9Wkh-OmqwvkySjYsf_xBalecRQBa4krKuCdE9XbslOq6hKp3olkg/exec'
 
 function regFields() {
     const email = $('reg-email').value.trim();
