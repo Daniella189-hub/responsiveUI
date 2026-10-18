@@ -40,6 +40,7 @@ const otherWrap = document.getElementById('other-wrap');
 const otherInput = document.getElementById('category-other');
 
 
+
 const $ =(id) => document.getElementById(id);
 
 function refresh(){
@@ -199,7 +200,7 @@ document.addEventListener('keydown', (e) => {
 
 const navLinks = [...document.querySelectorAll('nav a[href^="#"]')];
 const unit = (el) => el && (el.closest('section') || el);
-const idOf = (a) => a.getAttribute('href'.slice(1));
+const idOf = (a) => a.getAttribute('href').slice(1);
 const pageList = [...new Set(navLinks.map((a) => unit(document.getElementById(idOf(a)))).filter(Boolean))];
 
 function openPage(ref){
@@ -218,7 +219,7 @@ function openPage(ref){
         else a.removeAttribute('aria-current');
     });
     window.scrollTo(0, 0);
-    const h = t.querySlector('h2');
+    const h = t.querySelector('h2');
     if (h) announce(h.textContent + ' page');
 }
 
@@ -228,10 +229,9 @@ function route() {
 }
  window.addEventListener('hashchange', route);
  route();
-
-
-//-- Registry: register email + GitHub (needs the Apps Script URL below)
-const REGISTRY_URL = '';   // paste your Google Apps Script Web app URL between the quotes
+ 
+//--Registry: register email + GitHub (need the Apps Script URL below)
+const REGISTRY_URL = 'https://script.google.com/macros/s/AKfycbzcmbBd66TqZpXg7J9Wkh-OmqwvkySjYsf_xBalecRQBa4krKuCdE9XbslOq6hKp3olkg/exec/
 
 function regFields() {
     const email = $('reg-email').value.trim();
