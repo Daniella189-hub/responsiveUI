@@ -35,20 +35,32 @@
 				<ul>
 					<li><p>This app is mainly for tracking the student finance</p></li>
 					<li><p>As our student you are required to provide  your Github and Email account</p></li>
+					<div>
 					<li><p>After checking your <a href="https://github.com/YOUR-USERNAME">GitHub</a> and <a href="mailto:you@alustudent.com">email</a><br><br> Fill out the form below</p></li>
+<li class="register" style="list-style:none">
+  <h3>Register</h3>
+  <form id="reg-form" novalidate>
+    <div class="field">
+      <label for="reg-email">Email (@alustudent.com)</label>
+      <input id="reg-email" type="text" inputmode="email" autocomplete="email" aria-describedby="reg-email-error">
+    </div>
+    <p class="error" id="reg-email-error"></p>
+    <div class="field">
+      <label for="reg-github">GitHub username</label>
+      <input id="reg-github" type="text" autocomplete="off" aria-describedby="reg-github-error">
+    </div>
+    <p class="error" id="reg-github-error"></p>
+    <label class="check"><input type="checkbox" id="reg-consent"> I agree that my email, GitHub username and transactions are saved by the project owner to show who has registered. To have them deleted, I can email the address in the About section.</label>
+    <div class="actions">
+      <button type="submit">Register</button>
+      <button type="button" id="reg-email-btn" class="secondary">Email me my transactions</button>
+    </div>
+    <p class="error" id="reg-status" role="status"></p>
+  </form>
+</li>
+					</div>
 				</ul>
-				<div>
-					<form action="/signup" method="">
-					<fieldset>
-						<legend>Info</legend>
-						<label for="Github">Github:</label>
-						<input type="text" id="Github" name="Github" placeholder="github" required> <br><br>
-						<label for="email">email:</label>
-						<input type="email" id="email" name="email" placeholder="e.g:abcd@alustudent.com"required><br><br>
-						<input type="submit" value="submit" style="background-color:lightskyblue">
-					</fieldset>
-					</form>
-				</div>	
+				
 			</section>
 
 <!--DASHBOARD-->
@@ -62,7 +74,7 @@
 				</div>
 				<p id="cap-message" class="cap" aria-live="polite" aria-atomic="true"></p>
 				<h3>Last 7 days</h3>
-				<div id="trend" class="trend" role="img" arial-label="Spent in the last 7 days"></div>
+				<div id="trend" class="trend" role="img" aria-label="Spent in the last 7 days"></div>
 			</section>
 <!--RECORDS-->
             <section id="recordtable">
@@ -169,27 +181,7 @@
 							<input id="import" type="file" accept="application/json" class="sr-only">
 						</div>
 						<p id="import-error" class="error" role="alert"></p>
-				
-  <h3>Register (optional)</h3>
-  <form id="reg-form" novalidate>
-    <div class="field">
-      <label for="reg-email">Email (@alustudent.com)</label>
-      <input id="reg-email" type="text" inputmode="email" autocomplete="email" aria-describedby="reg-email-error">
-    </div>
-    <p class="error" id="reg-email-error"></p>
-    <div class="field">
-      <label for="reg-github">GitHub username</label>
-      <input id="reg-github" type="text" autocomplete="off" aria-describedby="reg-github-error">
-    </div>
-    <p class="error" id="reg-github-error"></p>
-    <label class="check"><input type="checkbox" id="reg-consent"> I agree that my email, GitHub username and transactions are saved by the project owner to show who has registered. To have them deleted, I can email the address in the About section.</label>
-    <div class="actions">
-      <button type="submit">Register</button>
-      <button type="button" id="reg-email-btn" class="secondary">Email me my transactions</button>
-    </div>
-    <p class="error" id="reg-status" role="status"></p>
-  </form>
-</section>
+				</section>
 			</div>
 		</main>
 
