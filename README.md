@@ -1,5 +1,5 @@
 # responsiveUI
-##Student Finance Tracker
+## Student Finance Tracker
 
 **Theme:** Student Finance Tracker
 **Live site (GitHub Pages):** https://daniella189-hub.github.io/responsiveUI/
@@ -102,7 +102,7 @@ The project emphasizes responsive design, inpit validation, accessibiblity and c
   | Search examples | `\.d{2}\b`, `(coffee\|tea)` |cents present |
   | email | `^[A-Za-z0-9._%+-]+@alustudent\.com$/i,` | daniella@alustudent.com
   | githubUser | `^[A-Za-z0-9](?:[A-Za-z0-9]-(?=[A-Za-z0-9])){0,38}$` | daniella-hub
-  | githubUrl | `^https:\/\/github\.com\/[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}(?:\/[\w._]+)?\/?$)` | 
+  | githubUrl | `^https:\/\/github\.com\/[A-Za-z0-9]` | trhe url of github
 
   ## Keyboard map 
   -`Tab` / `Shift+Tab`: move between controls; first stop is "Skip to main content"
