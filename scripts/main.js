@@ -53,6 +53,8 @@ function refresh(){
     renderTable(sortRecords(rows, key, dir), re);
     renderStats();
     $('result-count').textContent = `${rows.length} of ${state.records.length} transactions shown`
+    console.table(state.records);
+    console.log(state.settings);
 }
 
 

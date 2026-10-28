@@ -102,7 +102,7 @@
     {
         "id": "rec_0012",
         "description":"Hotel room",
-        "amount":"500",
+        "amount":500,
         "category":"Other",
         "date":"2026-10-12",
         "ceatedAt":"2026-10-12T12:00:00.000Z",

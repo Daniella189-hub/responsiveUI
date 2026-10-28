@@ -1,8 +1,8 @@
 {
   "/root/responsiveUI/seed.json": 222,
   "/root/responsiveUI/tests.html": 166,
-  "/root/responsiveUI/scripts/main.js": 289,
-  "/root/responsiveUI/styles/main.css": 603,
+  "/root/responsiveUI/scripts/main.js": 291,
+  "/root/responsiveUI/styles/main.css": 626,
   "/root/responsiveUI/index.html": 210,
   "/root/responsiveUI/README.md": 136,
   "/root/responsiveUI/scripts/search.js": 30,
@@ -14,5 +14,6 @@
   "/root/responsiveUI/assets/.gitkeep": 0,
   "/root/responsiveUI/.vscode/codepause-baselines.json": 16,
   "/root/responsiveUI/codevibe/reports/codepause-export-2026-10-18.json": 281,
-  "/root/responsiveUI/.gitignore": 0
+  "/root/responsiveUI/.gitignore": 0,
+  "c:/Users/HP/Downloads/responsiveUI/seed.json": 222
 }
