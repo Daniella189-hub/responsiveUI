@@ -477,7 +477,7 @@ mark{
     td[data-label="Actions"] button{
         margin-right:6px; padding:6px 10px;
     }
-}
+
 
 .two-col{
     grid-template-columns:1fr;
