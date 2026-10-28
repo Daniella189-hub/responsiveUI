@@ -12,18 +12,19 @@ body{
     flex-flow:row-reverse;
     margin:10px;
     color: white;
- }
+ 
 
 .read a {
     text-decoration: none;
 }
+}
 
-.read ul{
+.ready ul{
     display:flex;
     list-style-type: none;
     flex-flow:row-reverse;
-
 }
+
 .hero{
     display: border;
     padding:30px;
@@ -395,6 +396,95 @@ mark{
 
 }
 
+@media (max-width: 360px) {
+ 
+ 
+  body { font-size: 15px; }
+  main { padding-inline: 12px; }
+  section { scroll-margin-top: 64px; }
+
+  .site-header { padding: 8px 12px; }
+  .site-header nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 14px;
+  }
+  .site-header nav a { font-size: 0.85rem; }
+
+  .hero { padding: 32px 12px; }
+  .hero h1 { font-size: 1.5rem; }
+  .hero p { font-size: 0.95rem; }
+ 
+
+  .card {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+  }
+ 
+
+  form label,
+  fieldset label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  input,
+  select {
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1rem; 
+  }
+  button {
+    width: 100%;
+    padding: 12px;
+  }
+ 
+
+  .controls {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+ 
+
+  .table-wrap {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  table { min-width: 480px; }
+  th,
+  td {
+    padding: 8px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+ 
+  .site-footer { padding: 24px 12px 12px; }
+  .footer-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+  .footer-img {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    aspect-ratio: 11 / 6;
+  }
+  .footer-contact h3 { font-size: 1.1rem; }
+  .footer-contact p {
+    font-size: 0.9rem;
+    word-break: break-word;
+  }
+  .copyright {
+    font-size: 0.8rem;
+    margin-top: 16px;
+  }
+}
+ 
+
+
 /*--Lets talk about responsive websites--*/
 @media (min-width:768px){
     .site-header{
@@ -477,7 +567,7 @@ mark{
     td[data-label="Actions"] button{
         margin-right:6px; padding:6px 10px;
     }
-
+}
 
 .two-col{
     grid-template-columns:1fr;
@@ -536,6 +626,3 @@ nav a[aria-current = "page"]{
     font-weight: 700;
     text-decoration: underline;
 }
-
-
-
