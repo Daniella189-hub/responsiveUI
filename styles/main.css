@@ -396,92 +396,64 @@ mark{
 
 }
 
-@media (max-width: 360px) {
- 
- 
-  body { font-size: 15px; }
-  main { padding-inline: 12px; }
-  section { scroll-margin-top: 64px; }
+@media (max-width: 360px){
 
-  .site-header { padding: 8px 12px; }
+  main { padding-inline: 8px; }
+  section { padding-inline: 0; }
+  section ul,
+  section ol { padding-left: 18px; }
+
+ 
+  .site-header { padding: 6px 8px; }
   .site-header nav {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 14px;
+    gap: 4px 14px;
   }
-  .site-header nav a { font-size: 0.85rem; }
+  .site-header nav a { font-size: 0.8rem; }
 
-  .hero { padding: 32px 12px; }
-  .hero h1 { font-size: 1.5rem; }
-  .hero p { font-size: 0.95rem; }
  
-
-  .card {
-    width: 100%;
-    box-sizing: border-box;
-    margin-bottom: 10px;
-  }
- 
-
   form label,
   fieldset label {
-    display: block;
-    margin-bottom: 4px;
-  }
-  input,
-  select {
-    width: 100%;
-    box-sizing: border-box;
-    font-size: 1rem; 
-  }
-  button {
-    width: 100%;
-    padding: 12px;
-  }
- 
-
-  .controls {
     display: flex;
     flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    margin: 0;
+    font-size: 0.9rem;
+  }
+  form :is(div, p, li):has(> label) {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    margin-bottom: 10px;
+  }
+
+  form input:not([type="checkbox"]):not([type="radio"]),
+  form select {
+    width: 100%;
+    min-height: 44px;
+    padding: 8px 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  
+  form label:has(input[type="checkbox"]) {
+    flex-direction: row;
+    align-items: flex-start;
     gap: 8px;
   }
- 
-
-  .table-wrap {
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
-  }
-  table { min-width: 480px; }
-  th,
-  td {
-    padding: 8px;
-    font-size: 0.85rem;
-    white-space: nowrap;
-  }
- 
-  .site-footer { padding: 24px 12px 12px; }
-  .footer-content {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 16px;
-  }
-  .footer-img {
-    width: 100%;
-    max-width: 300px;
-    height: auto;
-    aspect-ratio: 11 / 6;
-  }
-  .footer-contact h3 { font-size: 1.1rem; }
-  .footer-contact p {
-    font-size: 0.9rem;
-    word-break: break-word;
-  }
-  .copyright {
-    font-size: 0.8rem;
-    margin-top: 16px;
+  form input[type="checkbox"] {
+    width: auto;
+    min-height: 0;
+    margin: 3px 0 0;
+    flex-shrink: 0;
   }
 }
+
  
 
 
